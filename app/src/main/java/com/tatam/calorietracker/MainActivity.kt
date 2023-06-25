@@ -14,8 +14,12 @@ import androidx.navigation.compose.rememberNavController
 import com.tatam.calorietracker.navigation.navigate
 import com.tatam.calorietracker.ui.theme.CalorieTrackerTheme
 import com.tatam.core.navigation.Route
+import com.tatam.onboarding_presentation.activitylevel.ActivityLevelScreen
 import com.tatam.onboarding_presentation.age.AgeScreen
 import com.tatam.onboarding_presentation.gender.GenderScreen
+import com.tatam.onboarding_presentation.goal.GoalScreen
+import com.tatam.onboarding_presentation.height.HeightScreen
+import com.tatam.onboarding_presentation.weight.WeightScreen
 import com.tatam.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,25 +46,37 @@ class MainActivity : ComponentActivity() {
                         composable(Route.AGE) {
                             AgeScreen(
                                 scaffoldState = scaffoldState,
-                                onNavigate = navController::navigate)
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.GENDER) {
                             GenderScreen(onNavigate = navController::navigate)
                         }
                         composable(Route.HEIGHT) {
-
+                            HeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.WEIGHT) {
+                            WeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
 
                         }
                         composable(Route.NUTRIENT_GOAL) {
 
                         }
                         composable(Route.ACTIVITY) {
-
+                            ActivityLevelScreen(
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.GOAL) {
-
+                            GoalScreen(
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.TRACKER_OVERVIEW) {
 
