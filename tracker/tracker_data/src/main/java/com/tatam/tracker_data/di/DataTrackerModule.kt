@@ -1,5 +1,8 @@
 package com.tatam.tracker_data.di
 
+import android.app.Application
+import androidx.room.Room
+import com.tatam.tracker_data.local.TrackerDatabase
 import com.tatam.tracker_data.remote.OpenFoodApi
 import com.tatam.tracker_data.remote.OpenFoodApi.Companion.BASE_URL
 import dagger.Module
@@ -38,4 +41,15 @@ object DataTrackerModule {
             .build()
             .create()
     }
+
+    @Provides
+    @Singleton
+    fun provideTrackerDatabase(application: Application): TrackerDatabase {
+        return Room.databaseBuilder(
+            application,
+            TrackerDatabase::class.java,
+            "tracker_db"
+        ).build()
+    }
+
 }
