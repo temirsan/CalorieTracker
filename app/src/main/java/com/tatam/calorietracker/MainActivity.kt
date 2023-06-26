@@ -88,9 +88,7 @@ class MainActivity : ComponentActivity() {
                         composable(Route.SEARCH) {
 
                         }
-
                     }
-
                 }
             }
         }
