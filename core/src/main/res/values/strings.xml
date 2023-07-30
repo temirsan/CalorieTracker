@@ -56,4 +56,6 @@
     <string name="whats_your_activity_level">What\'s your activity level?</string>
     <string name="your_goal">Your goal:</string>
     <string name="delete">Delete</string>
+    <string name="error_invalid_values">These are not valid values</string>
+    <string name="error_not_100_percent">The values must add up to 100%</string>
 </resources>
