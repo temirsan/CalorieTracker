@@ -3,8 +3,11 @@ package com.tatam.tracker_data.di
 import android.app.Application
 import androidx.room.Room
 import com.tatam.tracker_data.local.TrackerDatabase
+import com.tatam.tracker_data.local.dao.TrackerDao
 import com.tatam.tracker_data.remote.OpenFoodApi
 import com.tatam.tracker_data.remote.OpenFoodApi.Companion.BASE_URL
+import com.tatam.tracker_data.repository.TrackerRepositoryImpl
+import com.tatam.tracker_domain.repository.TrackerRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,33 +26,36 @@ object DataTrackerModule {
     @Provides
     @Singleton
     fun provideHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder()
-            .addInterceptor(
-                HttpLoggingInterceptor().apply {
-                    level = HttpLoggingInterceptor.Level.BODY
-                }
-            ).build()
+        return OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }).build()
     }
 
     @Provides
     @Singleton
     fun provideOpenFoodApi(client: OkHttpClient): OpenFoodApi {
-        return Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .client(client)
-            .build()
-            .create()
+        return Retrofit.Builder().baseUrl(BASE_URL)
+            .addConverterFactory(MoshiConverterFactory.create()).client(client).build().create()
     }
 
     @Provides
     @Singleton
     fun provideTrackerDatabase(application: Application): TrackerDatabase {
         return Room.databaseBuilder(
-            application,
-            TrackerDatabase::class.java,
-            "tracker_db"
+            application, TrackerDatabase::class.java, "tracker_db"
         ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTrackerRepository(
+        api: OpenFoodApi,
+        db: TrackerDatabase
+    ): TrackerRepository {
+        return TrackerRepositoryImpl(
+            dao = db.dao,
+            api = api
+        )
     }
 
 }
