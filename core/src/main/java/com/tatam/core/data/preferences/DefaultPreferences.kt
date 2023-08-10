@@ -1,4 +1,3 @@
-/*
 package com.tatam.core.data.preferences
 
 import android.content.SharedPreferences
@@ -76,4 +75,4 @@ class DefaultPreferences(private val sharedPrefs: SharedPreferences) : Preferenc
     override fun loadShouldShowOnboarding(): Boolean {
         return sharedPrefs.getBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, true)
     }
-}*/
+}
