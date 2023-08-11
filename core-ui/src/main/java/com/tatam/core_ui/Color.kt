@@ -1,4 +1,4 @@
-package com.tatam.calorietracker.ui.theme
+package com.tatam.core_ui
 
 import androidx.compose.ui.graphics.Color
 
