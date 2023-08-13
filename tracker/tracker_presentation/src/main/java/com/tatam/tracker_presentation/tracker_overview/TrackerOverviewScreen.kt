@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -12,6 +13,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.tatam.core.util.UiEvent
 import com.tatam.core_ui.LocalSpacing
 import com.tatam.tracker_presentation.tracker_overview.components.DaySelector
+import com.tatam.tracker_presentation.tracker_overview.components.ExpandableMeal
 import com.tatam.tracker_presentation.tracker_overview.components.NutrientsHeader
 
 @Composable
@@ -43,6 +45,18 @@ fun TrackerOverviewScreen(
                     .padding(horizontal = spacing.spaceMedium)
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
+        }
+        items(state.meals) { meal ->
+            ExpandableMeal(
+                meal = meal,
+                onToggleClick = {
+                    viewModel.onEvent(TrackerOverviewEvent.OnToggleMealClick(meal))
+                },
+                content = {
+
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
         }
     }
 }
