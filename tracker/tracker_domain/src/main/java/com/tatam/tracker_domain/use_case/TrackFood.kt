@@ -20,7 +20,7 @@ class TrackFood(
             TrackedFood(
                 name = food.name,
                 carbs = ((food.carbsPer100g / 100f) * amount).roundToInt(),
-                proteins = ((food.proteinPer100g / 100f) * amount).roundToInt(),
+                proteins = ((food.proteinsPer100g / 100f) * amount).roundToInt(),
                 fats = ((food.fatsPer100g / 100f) * amount).roundToInt(),
                 calories = ((food.caloriesPer100g / 100f) * amount).roundToInt(),
                 imageUrl = food.imageUrl,
