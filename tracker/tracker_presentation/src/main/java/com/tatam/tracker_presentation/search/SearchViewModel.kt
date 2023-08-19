@@ -90,7 +90,7 @@ class SearchViewModel @Inject constructor(
                     state = state.copy(isSearching = false)
                     _uiEvent.send(
                         UiEvent.ShowSnackbar(
-                            UiText.StringResource(R.string.something_went_wrong)
+                            UiText.StringResource(R.string.error_something_went_wrong)
                         )
                     )
                 }
