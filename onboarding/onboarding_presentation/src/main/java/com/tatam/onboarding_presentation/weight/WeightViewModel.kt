@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tatam.calorietracker.R
 import com.tatam.core.domain.preferences.Preferences
-import com.tatam.core.navigation.Route
 import com.tatam.core.util.UiEvent
 import com.tatam.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -44,7 +43,7 @@ class WeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveWeight(weightNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.ACTIVITY))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

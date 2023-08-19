@@ -1,4 +1,4 @@
-package com.tatam.core.navigation
+package com.tatam.calorietracker.navigation
 
 object Route {
     const val WELCOME = "welcome"

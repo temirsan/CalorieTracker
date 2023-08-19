@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.tatam.calorietracker.R
 import com.tatam.core.domain.preferences.Preferences
 import com.tatam.core.domain.usecase.FilterOutDigits
-import com.tatam.core.navigation.Route
 import com.tatam.core.util.UiEvent
 import com.tatam.core.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -45,7 +44,7 @@ class AgeViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveAge(ageNumber)
-            _uiEvent.send(UiEvent.Navigate(Route.HEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

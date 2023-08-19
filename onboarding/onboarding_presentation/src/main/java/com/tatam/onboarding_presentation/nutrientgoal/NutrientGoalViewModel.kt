@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tatam.core.domain.preferences.Preferences
 import com.tatam.core.domain.usecase.FilterOutDigits
-import com.tatam.core.navigation.Route
 import com.tatam.core.util.UiEvent
 import com.tatam.onboarding_domain.use_case.ValidateNutrients
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -54,7 +53,7 @@ class NutrientGoalViewModel @Inject constructor(
                         preferences.saveProteinRatio(result.proteinRatio)
                         preferences.saveFatRatio(result.fatsRatio)
                         viewModelScope.launch {
-                            _uiEvent.send(UiEvent.Navigate(Route.TRACKER_OVERVIEW))
+                            _uiEvent.send(UiEvent.Success)
                         }
                     }
 
