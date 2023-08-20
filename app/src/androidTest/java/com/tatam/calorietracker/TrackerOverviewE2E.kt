@@ -211,7 +211,7 @@ class TrackerOverviewE2E {
             .performTextInput("banana")
 
         composeRule
-            .onNodeWithContentDescription("Search...")
+            .onNodeWithContentDescription("Search…")
             .performClick()
 
         composeRule
