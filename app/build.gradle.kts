@@ -40,11 +40,20 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
     }
+    testOptions {
+        packagingOptions {
+            jniLibs {
+                useLegacyPackaging = true
+            }
+        }
+    }
     packaging {
         resources.excludes.add("META-INF/AL2.0")
         resources.excludes.add("META-INF/LGPL2.1")
         resources.excludes.add("**/attach_hotspot_windows.dll")
         resources.excludes.add("META-INF/licenses/ASM")
+        resources.excludes.add("META-INF/LICENSE.md")
+        resources.excludes.add("META-INF/LICENSE-notice.md")
     }
 }
 
@@ -106,4 +115,5 @@ dependencies {
     androidTestImplementation(Testing.hiltTesting)
     kaptAndroidTest(DaggerHilt.hiltCompiler)
     androidTestImplementation(Testing.testRunner)
+    androidTestImplementation(Testing.testCore)
 }
