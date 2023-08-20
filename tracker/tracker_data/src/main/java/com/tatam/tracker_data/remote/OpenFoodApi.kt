@@ -10,10 +10,10 @@ interface OpenFoodApi {
     suspend fun searchFood(
         @Query("search_terms") query: String,
         @Query("page") page: Int,
-        @Query("page_size") pageSize: Int,
+        @Query("page_size") pageSize: Int
     ): SearchDto
 
     companion object {
-        const val BASE_URL = "https://nz.openfoodfacts.org/"
+        const val BASE_URL = "https://us.openfoodfacts.org/"
     }
 }
