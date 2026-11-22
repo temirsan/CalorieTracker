@@ -4,9 +4,18 @@ A calorie and macro tracker for Android, built with Jetpack Compose. It uses a m
 
 You enter your body stats and goal once. The app then works out a daily calorie target and a carbs, protein and fat split. You log meals by searching the [Open Food Facts](https://world.openfoodfacts.org/) database.
 
-<p align="center">
-  <img src="docs/screenshots/tracker-overview.jpg" alt="Tracker overview screen" width="300"/>
-</p>
+<table align="center">
+  <tr>
+    <td align="center"><img src="imgs/Screenshot_20230821_200353.png" alt="Daily overview" width="250"/></td>
+    <td align="center"><img src="imgs/Screenshot_20230821_200423.png" alt="Meal diary" width="250"/></td>
+    <td align="center"><img src="imgs/Screenshot_20230821_200446.png" alt="Food search" width="250"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Daily overview</b><br/>Calorie goal and macro progress</td>
+    <td align="center"><b>Meal diary</b><br/>Expandable meals with tracked foods</td>
+    <td align="center"><b>Food search</b><br/>Live results from Open Food Facts</td>
+  </tr>
+</table>
 
 ## Features
 
